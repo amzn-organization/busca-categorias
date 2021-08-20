@@ -26,6 +26,9 @@ function App() {
     },
   ];
 
+  // Pulseiras
+  // Moda -> ID -> Feminino -> ID -> Joias -> ID -> Pulseiras
+
   const [items, setItems] = useState(BRACELET);
 
   const filterList = event => {
@@ -50,32 +53,35 @@ function App() {
         <nav aria-label="You are here:" role="navigation">
           <ul class="breadcrumbs">
             <li>
-              <a href="/">Bebês</a>
+              <a href="/">MODA</a>
             </li>
             <li>
-              <a href="/">Segurança</a>
+              <a href="/">FEMININO</a>
             </li>
-            <li class="disabled">Outros (Segurança)</li>
+            <li class="disabled">JOIAS</li>
           </ul>
         </nav>
         <ul>
           {items.map(item => {
             return (
               <li key={item} className="list-items">
-                <div className="parent-title">
-                  {item.browseNodeName}
-                  <ChevronRight />
-                </div>
-                <div className="child-list">
-                  {item.browsePath.map((child, index) => {
-                    return (
-                      <div key={child.id}>
-                        {child.name.toLowerCase()}
-                        {item.browsePath.length - 1 > index && '/'}
-                      </div>
-                    );
-                  })}
-                </div>
+                <section>
+                  <div className="parent-title">{item.browseNodeName}</div>
+                  <div className="child-list">
+                    <nav aria-label="You are here:" role="navigation">
+                      <ul class="breadcrumbs">
+                        {item.browsePath.map((child) => {
+                          return (
+                            <li key={child.id}>
+                              <a href="/">{child.name.toLowerCase()}</a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </nav>
+                  </div>
+                </section>
+                <ChevronRight />
               </li>
             );
           })}

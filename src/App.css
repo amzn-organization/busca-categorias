@@ -7,15 +7,18 @@
 }
 
 input {
-  line-height: 2!important;
+  line-height: 2 !important;
   font-size: 18px;
-  height: auto!important;
+  height: auto !important;
 }
 
 ul {
   margin: 0;
 }
-.list-items{
+.list-items .breadcrumbs {
+  margin: 0;
+}
+.list-items {
   list-style: none;
   border: 1px solid #ccc;
   margin-top: -1px;
@@ -23,12 +26,14 @@ ul {
   padding: 10px 20px;
   background: white;
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
-.parent-title{
+.parent-title {
   display: flex;
   justify-content: space-between;
 }
-.child-list{
+.child-list {
   display: flex;
 }
