@@ -84,61 +84,6 @@ const Home = () => {
 
     setItems(updatedList);
   };
-
-  // const getDisplayPath = useCallback(array => {
-  //   return (
-  //     array &&
-  //     array.map(({ label, children }) =>
-  //       Object.assign(
-  //         { label },
-  //         children && { children: getDisplayPath(children) }
-  //       )
-  //     )
-  //   );
-  // }, []);
-
-  // useEffect(() => {
-  //   setChild(getDisplayPath(items));
-  // }, []);
-
-  // const getBread = cat => {
-  //   console.log("cat", cat);
-
-  //   const browsePathSplited = cat.browsePath.split("/");
-  //   const displayPathSplited = cat.displayPath.split("/");
-  //   const bc = [];
-
-  //   let stringified = "";
-  //   let path = "";
-
-  //   for (const i in displayPathSplited) {
-  //     if (browsePathSplited.length === 2) {
-  //       path = browsePathSplited.join("/");
-  //     }
-
-  //     stringified += `${browsePathSplited[i]}/`;
-
-  //     bc.push({
-  //       id:
-  //         i > 0
-  //           ? `${browsePathSplited[i]}`
-  //           : `${browsePathSplited[i]}/${browsePathSplited[2]}`,
-  //       label: displayPathSplited[i],
-  //       fullPath: path ? path : stringified,
-  //     });
-
-  //     if (browsePathSplited.length !== 2) {
-  //       const currentIndex = bc.length - 1;
-  //       bc[currentIndex].fullPath = bc[currentIndex].fullPath.slice(0, -1);
-  //     }
-  //   }
-  //   console.log("stringified", stringified);
-  //   console.log("browsePathSplited", browsePathSplited);
-  //   console.log("displayPathSplited", displayPathSplited);
-
-  //   return bc;
-  // };
-
   const getBread = cat => {
     const browsePathSplited = cat.browsePath.split("/");
     const displayPathSplited = cat.displayPath.split("/");
