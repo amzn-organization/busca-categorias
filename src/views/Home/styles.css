@@ -1,0 +1,91 @@
+@import url(https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css);
+main {
+  display: flex;
+  flex-direction: column;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container {
+  padding: 200px 16px 60px;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+.top-nav {
+  background-color: #131921;
+  padding: 16px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.top-nav img {
+  margin-right: 16px;
+  height: 60px;
+}
+
+input[type="text"] {
+  margin: 1rem 0;
+  line-height: 2;
+  font-size: 18px;
+  max-width: 768px;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+}
+ul li .next-category {
+  width: 100%;
+}
+.list-items {
+  list-style: none;
+  border: 1px solid #ccc;
+  margin-top: -1px;
+  line-height: 2;
+  padding: 10px 20px;
+  background: white;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.list-items:hover {
+  background: rgb(245, 245, 245);
+  transform: scale(1.05);
+}
+
+.list-items .breadcrumbs {
+  margin: 0;
+}
+.parent-title {
+  display: flex;
+  justify-content: space-between;
+  color:#f08804;
+  font-weight: bold;
+}
+.child-list {
+  display: flex;
+}
+
+@media (max-width: 615px) {
+  .top-nav {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 455px) {
+  .top-nav {
+    font-size: 18px;
+  }
+  .top-nav img {
+    height: 40px;
+  }
+}
