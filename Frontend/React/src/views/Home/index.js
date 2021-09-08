@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { ChevronRight, Download } from "react-feather";
-import { jsonCategories } from "./data";
 import { useLocation } from "react-router-dom";
+
+import { getCategories } from "services";
 import "./styles.css";
 
 const useQuery = () => {
@@ -31,7 +32,8 @@ const getAsArray = (data, isBaseCategory) => {
 };
 
 const Home = () => {
-  const [items, setItems] = useState(getAsArray(jsonCategories));
+  const [items, setItems] = useState();
+  console.log(items);
 
   let query = useQuery();
 
@@ -40,6 +42,15 @@ const Home = () => {
   const idChild = queryParams && queryParams.split("/");
 
   let category = "";
+
+  const getAllCategories = async () => {
+    try {
+      const data = await getCategories();
+      setItems(getAsArray(data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     if (idChild?.length) {
@@ -65,11 +76,13 @@ const Home = () => {
         );
       }
       setItems(getAsArray(category.children));
+    } else {
+      getAllCategories();
     }
   }, []);
 
   const filterList = event => {
-    var updatedList = getAsArray(jsonCategories);
+    var updatedList = getAsArray(getCategories());
 
     updatedList = updatedList.filter(function (item) {
       return (
@@ -130,7 +143,7 @@ const Home = () => {
 
       <div className="container">
         <div className="filter-list">
-          <nav aria-label="You are here:" role="navigation">
+          {/* <nav aria-label="You are here:" role="navigation">
             <ul className="breadcrumbs">
               <li>
                 <a href="/">Categorias</a>
@@ -149,11 +162,8 @@ const Home = () => {
                   )}
                 </li>
               ))}
-              {/* <li className="disabled">
-                Alimentos Enlatados, em Conserva e em Pacotes
-              </li> */}
             </ul>
-          </nav>
+          </nav> */}
           <ul>
             {items &&
               getAsArray(items).map(item => {
@@ -162,7 +172,7 @@ const Home = () => {
                     {item.isSellable ? (
                       <div className="next-category">
                         <section>
-                          <div className="parent-title">{item.label}</div>
+                          <div className="parent-title">{item.name}</div>
                           <small>BrowseNodeId: {item.id}</small>
                         </section>
                       </div>
@@ -172,7 +182,7 @@ const Home = () => {
                         className="next-category"
                       >
                         <section>
-                          <div className="parent-title">{item.label}</div>
+                          <div className="parent-title">{item.name}</div>
                           <small>BrowseNodeId: {item.id}</small>
                         </section>
                       </a>
