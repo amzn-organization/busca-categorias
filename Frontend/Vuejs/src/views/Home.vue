@@ -30,7 +30,6 @@
         @focus="searchInputIsFocused = true"
         @blur="searchInputIsFocused = false"
         @keyup="search($event)"
-        :disabled="disableSearchInput"
       />
     </div>
 
@@ -74,6 +73,10 @@
             <h3 class="category-name">{{ category.name }}</h3>
             <br />
             <p class="category-info">BrowseNodeID: {{ category.id }}</p>
+            <br />
+            <p class="category-info">
+              PathByName: {{ category.pathByName.split(",").join(", ") }}
+            </p>
           </div>
 
           <div>
@@ -106,7 +109,6 @@ export default {
   data: () => ({
     searchInputValue: "",
     searchInputIsFocused: false,
-    disableSearchInput: false,
     categories: [],
     breadcrumb: [],
     requestedCategoryPathByName: "",
@@ -121,18 +123,14 @@ export default {
       return;
     }
 
-    this.disableSearchInput = true;
     const { data } = await axios.get("http://localhost:3000/categories");
     console.log("data (first request)", data);
 
     this.categories = data;
-    this.disableSearchInput = false;
   },
 
   methods: {
     async request(documents, currentCategoryHasChildren) {
-      this.disableSearchInput = true;
-
       if (!currentCategoryHasChildren) {
         window.open(documents[0]);
         return;
@@ -147,7 +145,6 @@ export default {
 
       this.categories = data[0].children;
       console.log("data", this.categories);
-      this.disableSearchInput = false;
 
       this.requestedCategoryPathByName = data[0].pathByName;
 
@@ -170,13 +167,10 @@ export default {
       }
 
       event.preventDefault();
-      this.disableSearchInput = true;
 
       const { data } = await axios.get(
         `http://localhost:3000/categories/search/${this.searchInputValue}`
       );
-
-      this.disableSearchInput = false;
 
       if (!data.length) {
         alert("Nenhum resultado encontrado");
@@ -187,6 +181,7 @@ export default {
     },
     updateBreadcrumb(pathById, pathByName) {
       let mountedPath = "";
+      pathByName = pathByName.replace(/, /g, "/");
       pathById = pathById.split(",");
       pathByName = pathByName.split(",");
 
@@ -204,7 +199,7 @@ export default {
 
         this.breadcrumb.push({
           path: mountedPath,
-          name: pathByName[index],
+          name: pathByName[index].replace(/\//g, ", "),
           isFirstIndex,
         });
       }
