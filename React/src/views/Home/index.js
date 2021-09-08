@@ -39,7 +39,7 @@ const Home = () => {
 
   const idChild = queryParams && queryParams.split("/");
 
-  let category = null;
+  let category = "";
 
   useEffect(() => {
     if (idChild?.length) {
