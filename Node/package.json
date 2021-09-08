@@ -1,0 +1,21 @@
+{
+  "name": "the-last-categories",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "generate": "node index.js",
+    "setup": "node index.js && node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
