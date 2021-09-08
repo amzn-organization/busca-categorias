@@ -1,5 +1,5 @@
 export const config = {
-  port: 3000,
+  port: 3333,
   fileName: "categories",
   reportFileName: "report.json",
 };

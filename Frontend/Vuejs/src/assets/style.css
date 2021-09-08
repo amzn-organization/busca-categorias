@@ -1,3 +1,5 @@
+@import url(https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css);
+
 :root {
   --color-dark: #26293a;
   --color-semidark: #363b57;
@@ -6,15 +8,35 @@
   --color-warning: orange;
 }
 
-* {
-  font-family: Roboto, Arial, Helvetica, sans-serif;
+html,
+body {
+  padding: 0;
+  margin: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--color-dark);
-  color: var(--color-light);
+  background: #121212;
+  color: rgb(226, 226, 226);
+  font-size: 14px;
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+a,
+a:hover {
+  color: #0a0a0a;
 }
 
 .debug {
@@ -63,20 +85,12 @@ hr {
   background-color: #41434e;
 }
 
-input {
-  padding: 4px 16px;
-  height: 1.8rem;
-  width: 100%;
+input[type="text"] {
+  margin: 1rem 0;
+  line-height: 2;
   font-size: 18px;
-  border-radius: 0;
-}
-
-.w100 {
-  width: 100%;
-}
-
-.card {
-  background: #363b57;
+  max-width: 768px;
+  height: auto;
 }
 
 .text-center {
@@ -113,7 +127,7 @@ input {
 }
 
 .category-info {
-  margin: 0;
+  margin: 0.5rem 0;
 }
 
 .text-warning {
@@ -121,7 +135,7 @@ input {
 }
 
 .font-sm {
-  font-size: 0.85em;
+  font-size: 0.85rem;
 }
 
 .btn-primary {
@@ -139,4 +153,63 @@ a {
 
 a:hover {
   color: var(--color-warning);
+}
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+ul {
+  margin: 0;
+}
+ul li .next-category {
+  width: 100%;
+}
+.list-items {
+  list-style: none;
+  border: 0;
+  border-bottom: 1px solid rgb(44, 44, 44);
+  margin-top: -1px;
+  line-height: 2;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease;
+}
+
+.list-items:hover {
+  background: rgb(54, 54, 54);
+  transform: scale(1.05);
+}
+
+.container {
+  padding: 230px 16px 60px;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.top-nav {
+  background-color: #131921;
+  padding: 16px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+}
+.top-nav img {
+  margin-right: 16px;
+  height: 60px;
 }

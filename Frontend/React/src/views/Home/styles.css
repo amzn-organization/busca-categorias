@@ -8,6 +8,7 @@ header {
   flex-direction: column;
   align-items: center;
 }
+
 .container {
   padding: 200px 16px 60px;
   width: 100%;
@@ -68,7 +69,7 @@ ul li .next-category {
 .parent-title {
   display: flex;
   justify-content: space-between;
-  color:#f08804;
+  color: #f08804;
   font-weight: bold;
 }
 .child-list {
