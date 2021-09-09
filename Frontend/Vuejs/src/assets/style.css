@@ -16,6 +16,7 @@ body {
 
 * {
   box-sizing: border-box;
+  word-break: break-all !important;
 }
 body {
   background: #121212;

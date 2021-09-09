@@ -75,7 +75,7 @@
 
             <p class="category-info">
               <strong>Path By Name:</strong>
-              {{ category.pathByName.replace(/,/g, ", ") }}
+              {{ category.pathByName.replace(/,/g, " / ") }}
             </p>
           </div>
 
