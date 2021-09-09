@@ -17,7 +17,7 @@ contendo as categorias de forma aninhada. Para que o JSON de categorias seja ger
 O `index.js` usa os dados do `report.json` para gerar um novo arquivo JSON de categorias contendo
 as informações principais das mesmas e de forma aninhada, ou seja, suas categorias filhas ficam
 dentro da propriedade `children`. Ele também utiliza o arquivo `xsd-reference.js` para incluir
-os arquivos `XSD` da categoria baseado no `browseNodeId` das mesmas.
+os arquivos `XSD` da categoria baseado no `browseNodeId`.
 
 Exemplo de uma categoria:
 
