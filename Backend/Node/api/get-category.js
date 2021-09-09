@@ -29,10 +29,21 @@ export function searchCategories(req, res) {
     return res.json(category);
   }
 
-  const regex = new RegExp(replaceDiacritics(id).toLowerCase());
+  const searchWords = replaceDiacritics(id).toLowerCase().split(" ");
+  let regexString = "";
+
+  for (const word of searchWords) {
+    regexString += `(?=.*${word})`;
+  }
+
+  const regex = new RegExp(`${regexString}.*`);
+
   const categoriesFiltered = categories.filter((c) =>
     replaceDiacritics(c.name).toLowerCase().match(regex)
   );
+
+  // Sorting
+  categoriesFiltered.sort((a, b) => a.hasChildren - b.hasChildren);
 
   return res.json(categoriesFiltered);
 }

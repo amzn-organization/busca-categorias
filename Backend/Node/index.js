@@ -14,6 +14,7 @@ for (const category of reportData) {
   const pathByName = category.browsePathByName;
   const hasChildren = category.childNodes["@count"] > 0;
   const productType = category.productTypeDefinitions;
+
   let children =
     category.childNodes["@count"] > 0 ? category.childNodes.id : [];
 
@@ -38,10 +39,10 @@ for (const category of reportData) {
     name,
     pathById,
     pathByName,
-    hasChildren,
-    children,
     productType,
+    hasChildren,
     documents: categoryXSDs,
+    children,
   });
 }
 
