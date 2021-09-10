@@ -16,8 +16,9 @@ body {
 
 * {
   box-sizing: border-box;
-  word-break: break-all !important;
+  word-break: break-all;
 }
+
 body {
   background: #121212;
   color: rgb(226, 226, 226);

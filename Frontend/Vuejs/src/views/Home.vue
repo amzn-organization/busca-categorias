@@ -172,6 +172,8 @@ export default {
         `http://localhost:3333/categories/search/${this.searchInputValue}`
       );
 
+      this.updateBreadcrumb("", "");
+
       if (!data.length) {
         alert("Nenhum resultado encontrado");
         return;
