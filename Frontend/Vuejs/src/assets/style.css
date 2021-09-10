@@ -190,11 +190,10 @@ ul li .next-category {
 
 .list-items:hover {
   background: rgb(54, 54, 54);
-  transform: scale(1.05);
 }
 
 .container {
-  padding: 230px 16px 60px;
+  padding: 280px 16px 60px;
   width: 100%;
   max-width: 800px;
   margin: auto;
@@ -214,4 +213,14 @@ ul li .next-category {
 .top-nav img {
   margin-right: 16px;
   height: 60px;
+}
+
+.breadcrumb {
+  position: fixed;
+  top: 218px;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  background-color: #121212;
+  padding: 20px 0;
 }
