@@ -132,7 +132,7 @@ export default {
         }
 
         const { data } = await axios.get(
-            `http://localhost:3333/categories?token=${this.token}`
+            `https://qk2nbyt8ed.execute-api.sa-east-1.amazonaws.com/dev/categories?token=${this.token}`
         );
 
         this.categories = data;
@@ -147,7 +147,7 @@ export default {
 
             const pathById = this.$route.query.pathById;
             const { data } = await axios.get(
-                `http://localhost:3333/categories/search-by-path/${pathById}?token=${this.token}`
+                `https://qk2nbyt8ed.execute-api.sa-east-1.amazonaws.com/dev/categories/search-by-path/${pathById}?token=${this.token}`
             );
 
             const oldCategoriesLength = this.categories.length;
@@ -178,7 +178,7 @@ export default {
             event.preventDefault();
 
             const { data } = await axios.get(
-                `http://localhost:3333/categories/search/${this.searchInputValue}?token=${this.token}`
+                `https://qk2nbyt8ed.execute-api.sa-east-1.amazonaws.com/dev/categories/search/${this.searchInputValue}?token=${this.token}`
             );
 
             this.updateBreadcrumb("", "");

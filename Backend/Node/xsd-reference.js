@@ -1,4 +1,4 @@
-export const xsds = {
+const xsds = {
   // "": "https://images-na.ssl-images-amazon.com/images/G/01/rainier/help/xsd/release_4_1/Arts.xsd",
 
   18914210011: [
@@ -110,4 +110,8 @@ export const xsds = {
     "https://images-na.ssl-images-amazon.com/images/G/01/rainier/help/xsd/release_4_1/Toys.xsd",
     "https://images-na.ssl-images-amazon.com/images/G/01/rainier/help/xsd/release_4_1/ToysBaby.xsd",
   ],
+};
+
+module.exports = {
+  xsds,
 };
