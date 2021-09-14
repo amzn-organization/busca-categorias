@@ -225,3 +225,37 @@ ul li .next-category {
   padding: 20px 0;
   display: flex;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px;
+  background: #e6b93e;
+  color: black;
+  text-align: center;
+}
+
+footer p {
+  padding: 0;
+  margin: 0;
+}
+
+svg path,
+svg rect {
+  fill: #fff;
+}
+
+.loading {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #000000cc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
