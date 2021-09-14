@@ -182,11 +182,11 @@ export default {
 
   methods: {
     async request(documents, currentCategoryHasChildren) {
-      this.isLoading = true;
       if (!currentCategoryHasChildren) {
         window.open(documents[0]);
         return;
       }
+      this.isLoading = true;
 
       const pathById = this.$route.query.pathById;
       const { data } = await axios.get(
