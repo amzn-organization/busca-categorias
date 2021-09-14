@@ -114,10 +114,15 @@ export default {
         searchInputIsFocused: false,
         categories: [],
         breadcrumb: [],
+        token: "",
         requestedCategoryPathByName: "",
     }),
 
     async mounted() {
+        this.token = window.localStorage.getItem("inputToken");
+        if (!this.token) {
+            return this.$router.push("/");
+        }
         const pathById = this.$route.query.pathById;
 
         if (pathById) {
@@ -126,8 +131,9 @@ export default {
             return;
         }
 
-        const { data } = await axios.get("http://localhost:3333/categories");
-        console.log("data (first request)", data);
+        const { data } = await axios.get(
+            `http://localhost:3333/categories?token=${this.token}`
+        );
 
         this.categories = data;
     },
@@ -141,7 +147,7 @@ export default {
 
             const pathById = this.$route.query.pathById;
             const { data } = await axios.get(
-                `http://localhost:3333/categories/search-by-path/${pathById}`
+                `http://localhost:3333/categories/search-by-path/${pathById}?token=${this.token}`
             );
 
             const oldCategoriesLength = this.categories.length;
@@ -172,7 +178,7 @@ export default {
             event.preventDefault();
 
             const { data } = await axios.get(
-                `http://localhost:3333/categories/search/${this.searchInputValue}`
+                `http://localhost:3333/categories/search/${this.searchInputValue}?token=${this.token}`
             );
 
             this.updateBreadcrumb("", "");

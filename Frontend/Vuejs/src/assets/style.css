@@ -223,4 +223,5 @@ ul li .next-category {
   margin: 0 auto;
   background-color: #121212;
   padding: 20px 0;
+  display: flex;
 }
