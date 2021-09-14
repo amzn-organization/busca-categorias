@@ -1,4 +1,4 @@
-import { token } from "../../token";
+import { token } from "../../token.js";
 
 export function isAuthenticated(req, res, next) {
   if (!req.query.token) {
