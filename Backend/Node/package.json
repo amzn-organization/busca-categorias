@@ -4,15 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server.js",
+    "dev": "nodemon app.js",
     "generate": "node index.js",
-    "setup": "node index.js && node server.js",
-    "start": "node server.js"
+    "setup": "node index.js && node app.js",
+    "start": "node app.js"
   },
   "dependencies": {
     "colors": "^1.4.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "serverless-http": "^2.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
