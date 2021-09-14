@@ -6,7 +6,7 @@ import { token } from "./token.js";
 
 const router = express.Router();
 
-router.use("/", (req, res, next) => {
+router.use("/categories", (req, res, next) => {
   if (!req.query.token) {
     return res.status(401).json();
   }
