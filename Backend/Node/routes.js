@@ -23,4 +23,8 @@ router.get("/categories/search-by-path/:browsePath", getCategoriesByPath);
 router.get("/categories/search/:idOrName", searchCategories);
 router.get("/categories", getCategories);
 
+router.get("/verify-token", (req, res) => {
+  return req.query.token === token;
+});
+
 export { router };
