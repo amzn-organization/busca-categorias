@@ -222,10 +222,12 @@ export default {
 
       event.preventDefault();
 
+      this.isLoading = true;
       const { data } = await axios.get(
         `https://qk2nbyt8ed.execute-api.sa-east-1.amazonaws.com/dev/categories/search/${this.searchInputValue}?token=${this.token}`
       );
 
+      this.isLoading = false;
       this.updateBreadcrumb("", "");
 
       if (!data.length) {
