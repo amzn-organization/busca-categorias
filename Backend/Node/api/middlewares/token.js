@@ -1,6 +1,6 @@
-import { token } from "../../token.js";
+const { token } = require("../../token.js");
 
-export function isAuthenticated(req, res, next) {
+function isAuthenticated(req, res, next) {
   if (!req.query.token) {
     return res.status(401).json();
   }
@@ -11,3 +11,7 @@ export function isAuthenticated(req, res, next) {
 
   next();
 }
+
+module.exports = {
+  isAuthenticated,
+};

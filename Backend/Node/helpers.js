@@ -1,13 +1,13 @@
-import fs from "fs";
-import { config } from "./config.js";
+const fs = require("fs");
+const { config } = require("./config.js");
 
-export function readFile(filePath) {
+function readFile(filePath) {
   const buffer = fs.readFileSync(filePath, "utf-8");
   const data = JSON.parse(buffer);
   return data;
 }
 
-export function saveJSONToFile(data, fileName, minified = false) {
+function saveJSONToFile(data, fileName, minified = false) {
   if (minified) {
     fs.writeFileSync(fileName, JSON.stringify(data, null));
     return;
@@ -16,7 +16,7 @@ export function saveJSONToFile(data, fileName, minified = false) {
   fs.writeFileSync(fileName, JSON.stringify(data, null, "\t"));
 }
 
-export function replaceDiacritics(str) {
+function replaceDiacritics(str) {
   const diacriticsReplacers = {
     // Uppercase
     À: "A",
@@ -67,3 +67,9 @@ export function replaceDiacritics(str) {
 
   return mountedStr;
 }
+
+module.exports = {
+  readFile,
+  saveJSONToFile,
+  replaceDiacritics,
+};

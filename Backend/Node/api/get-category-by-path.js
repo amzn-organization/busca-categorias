@@ -1,6 +1,6 @@
-import { readFile } from "../helpers.js";
+const { readFile } = require("../helpers.js");
 
-export function getCategoriesByPath(req, res) {
+function getCategoriesByPath(req, res) {
   let browsePath = req.params.browsePath;
   const categories = readFile(
     "./categories/categories-root-with-children.json"
@@ -12,3 +12,7 @@ export function getCategoriesByPath(req, res) {
 
   return res.json(categoriesFiltered);
 }
+
+module.exports = {
+  getCategoriesByPath,
+};

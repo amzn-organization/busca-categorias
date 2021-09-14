@@ -1,6 +1,6 @@
-import { readFile, replaceDiacritics } from "../helpers.js";
+const { readFile, replaceDiacritics } = require("../helpers.js");
 
-export function searchCategories(req, res) {
+function searchCategories(req, res) {
   const id = req.params.idOrName;
   let isID = false;
 
@@ -47,3 +47,7 @@ export function searchCategories(req, res) {
 
   return res.json(categoriesFiltered);
 }
+
+module.exports = {
+  searchCategories,
+};

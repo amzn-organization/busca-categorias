@@ -1,6 +1,6 @@
-import { readFile } from "../helpers.js";
+const { readFile } = require("../helpers.js");
 
-export function getCategories(req, res) {
+function getCategories(req, res) {
   const categories = readFile("./categories/categories.json");
 
   const preparedData = categories.map((category) => ({
@@ -22,3 +22,7 @@ export function getCategories(req, res) {
 
   return res.json(preparedData);
 }
+
+module.exports = {
+  getCategories,
+};

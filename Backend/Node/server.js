@@ -1,8 +1,8 @@
-import "colors";
-import cors from "cors";
-import express from "express";
-import { config } from "./config.js";
-import { router } from "./routes.js";
+require("colors");
+const cors = require("cors");
+const express = require("express");
+const { config } = require("./config.js");
+const { router } = require("./routes.js");
 
 const app = express();
 app.use(cors());

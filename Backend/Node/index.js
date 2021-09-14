@@ -1,7 +1,7 @@
-import "colors";
-import { config } from "./config.js";
-import { readFile, saveJSONToFile } from "./helpers.js";
-import { xsds } from "./xsd-reference.js";
+require("colors");
+const { config } = require("./config.js");
+const { readFile, saveJSONToFile } = require("./helpers.js");
+const { xsds } = require("./xsd-reference.js");
 
 const reportData = readFile(config.reportFileName).Result.Node;
 const preparedCategories = [];

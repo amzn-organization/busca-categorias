@@ -1,9 +1,9 @@
-import express from "express";
-import { getCategories } from "./api/get-categories.js";
-import { getCategoriesByPath } from "./api/get-category-by-path.js";
-import { searchCategories } from "./api/get-category.js";
-import { isAuthenticated } from "./api/middlewares/token.js";
-import { token } from "./token.js";
+const express = require("express");
+const { getCategories } = require("./api/get-categories.js");
+const { getCategoriesByPath } = require("./api/get-category-by-path.js");
+const { searchCategories } = require("./api/get-category.js");
+const { isAuthenticated } = require("./api/middlewares/token.js");
+const { token } = require("./token.js");
 
 const router = express.Router();
 
@@ -20,4 +20,4 @@ router.get("/verify-token", (req, res) => {
   return res.json({ isValid: req.query.token === token });
 });
 
-export { router };
+module.exports = { router };
