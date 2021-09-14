@@ -58,16 +58,15 @@ export default {
             event.preventDefault();
 
             window.localStorage.setItem("inputToken", this.inputToken);
-            
+
             const { data } = await axios.get(
                 `http://localhost:3333/verify-token?token=${this.inputToken}`
             );
 
             if (data.isValid) {
-                this.$vToastify.success("Sucesso");
                 this.$router.push("/categorias");
             } else {
-                this.$vToastify.error("Token inválido");
+                this.$vToastify.error("Verifique o token", "Token inválido");
             }
 
             return;
