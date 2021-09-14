@@ -35,13 +35,13 @@
             <div class="breadcrumb">
                 <div v-for="(breadcrumb, index) in breadcrumb" :key="index">
                     <template v-if="!breadcrumb.isFirstIndex">
-                        <a :href="`/?pathById=${breadcrumb.path}`">{{
+                        <a :href="`/categorias?pathById=${breadcrumb.path}&token=${token}`">{{
                             breadcrumb.name
                         }}</a>
                     </template>
 
                     <template v-else>
-                        <a href="/">{{ breadcrumb.name }}</a>
+                        <a :href="`/categorias?token=${token}`">{{ breadcrumb.name }}</a>
                     </template>
                     <span style="margin: 0 10px">/</span>
                 </div>
@@ -166,7 +166,7 @@ export default {
         redirectTo(pathById, pathByName, documents = [], hasChildren) {
             //this.$route.query.pathById
             const lastPathById = this.$route.query.pathById || pathById;
-            this.$router.push(`?pathById=${pathById}&last=${lastPathById}`);
+            this.$router.push(`?pathById=${pathById}&last=${lastPathById}&token=${this.token}`);
             this.request(documents, hasChildren);
             this.updateBreadcrumb(pathById, pathByName);
         },
