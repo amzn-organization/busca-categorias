@@ -75,8 +75,12 @@ saveJSONToFile(
 );
 
 console.log(`Removing children categories from root of the array`.yellow);
-const finalCategories = preparedCategories.filter(
+const baseCategories = preparedCategories.filter(
   (c) => c.pathById.split(",").length <= 2
+);
+
+const finalCategories = baseCategories.filter(
+  (c) => !config.exclude.includes(c.name)
 );
 
 console.log(
